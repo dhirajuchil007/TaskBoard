@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0.8dp"
+
+
+    app:cardCornerRadius="5dp"
+    android:layout_margin="4dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+
+android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:textSize="25sp"
+        android:id="@+id/task_points"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+       android:textColor="@android:color/white"
+android:background="@drawable/circle"
+
+        android:text="10"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:text="To do or not todo"
+        android:textSize="18sp"
+        android:id="@+id/task_desc"
+        />
+    </LinearLayout>
+
+
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>
