@@ -7,4 +7,24 @@
     <string name="submit">Submit</string>
     <string name="instruction">Drag the slider to set points for this task</string>
     <string name="notask">You have no tasks. Tap on the button to add one</string>
+    <string name="nextmilestone">Next Milestone:</string>
+    <string name="totalpoints">Total Points</string>
+    <string name="addMilestone">You do not have any milestones. Click here to add one</string>
+    <string name="title_activity_milestones">MilestonesActivity</string>
+    <string name="enter_points">Enter points needed to reach the milestone</string>
+    <string name="enterreward">Enter a Reward</string>
+    <string name="addMilestoneactivitylabel">Add Milestone</string>
+    <string name="letsdothis">Lets do this</string>
+    <string name="pointsneeded">Points Needed:</string>
+    <string name="reward">Reward:</string>
+    <string name="completed">Completed</string>
+    <string name="pointsreached">You have reached</string>
+    <string name="pointsLowercase">points</string>
+    <string name="rewardearned">Your reward:</string>
+    <string name="milestones">Milestones</string>
+    <string name="milestonereached">Milestone Reached</string>
+    <string name="pointsneedederror">This field cannot be empty</string>
+    <string name="rewardneeedederror">Please enter a reward</string>
+    <string name="taskneedederror">Enter a task description</string>
 </resources>
+

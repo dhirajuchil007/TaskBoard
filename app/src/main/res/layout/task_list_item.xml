@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="0.8dp"
+    app:cardElevation="1dp"
 
 
     app:cardCornerRadius="5dp"
@@ -19,17 +19,17 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.8"
+        android:layout_weight="0.6"
 
 android:textAlignment="center"
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"
         android:textSize="25sp"
         android:id="@+id/task_points"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
        android:textColor="@android:color/white"
 android:background="@drawable/circle"
 

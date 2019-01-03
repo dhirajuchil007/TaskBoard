@@ -3,6 +3,7 @@ package com.velocityappsdj.todo_;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ public class AddTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         points=findViewById(R.id.task_points_tv_addtask);
         mDb=AppDatabase.getsInstance(getApplicationContext());
         SeekBar seekBar=findViewById(R.id.seekBar);
@@ -48,6 +50,11 @@ public class AddTask extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               if( !validateInput())
+               {
+                   return;
+
+               }
               final  Tasks tasks=new Tasks(taskDescription.getText().toString(),Integer.parseInt(points.getText().toString()),0);
                 new Thread(new Runnable() {
                     @Override
@@ -64,5 +71,25 @@ public class AddTask extends AppCompatActivity {
 
 
 
+    }
+    public boolean  validateInput(){
+       if(taskDescription.getText().toString()==""||taskDescription.getText().toString()==null||taskDescription.getText().toString().matches(""))
+       {
+           taskDescription.setError(getString(R.string.taskneedederror));
+           return false;
+       }
+
+       return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

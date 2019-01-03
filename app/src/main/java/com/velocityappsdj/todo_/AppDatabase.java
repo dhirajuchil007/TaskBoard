@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database( entities ={Tasks.class},version = 1,exportSchema = false)
+@Database( entities ={Tasks.class,Milestones.class,TotalPoints.class},version = 2,exportSchema = false)
 public  abstract class AppDatabase extends RoomDatabase {
     private static final String LOG_TAG = AppDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();

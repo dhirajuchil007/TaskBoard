@@ -19,8 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddTask"
-            android:label="@string/addtask"></activity>
+        <activity
+            android:name=".AddTask"
+            android:label="@string/addtask" />
+        <activity
+            android:name=".MilestonesActivity"
+            android:label="@string/milestones" />
+        <activity
+            android:name=".AddMilestone"
+            android:label="@string/addMilestoneactivitylabel" />
+        <activity android:name=".completedMilestone"
+            android:label="@string/milestonereached"></activity>
     </application>
 
 </manifest>
