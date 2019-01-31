@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">To Do</string>
+    <string name="app_name">TaskBoard</string>
     <string name="action_settings">Settings</string>
     <string name="addtask">Add Task</string>
     <string name="todo">To Do</string>
@@ -26,5 +26,21 @@
     <string name="pointsneedederror">This field cannot be empty</string>
     <string name="rewardneeedederror">Please enter a reward</string>
     <string name="taskneedederror">Enter a task description</string>
+    <string name="admobappid">ca-app-pub-9540086841520699~7479585337</string>
+    <string name="completed_tasks">Completed Tasks</string>
+    <string name="resetprogress">Reset All progress</string>
+    <string name="reset">Reset all progress</string>
+    <string name="resetall">Reset all data?(Not reversible)</string>
+    <string name="nomilestones">You have no milestones. Are you even trying?</string>
+    <string name="nocompleted">You have not completed any tasks. Start working Now!!</string>
+    <string name="deletetask">Delete Task</string>
+    <string name="addTaskIns">Click on this button to add new tasks</string>
+    <string name="swipeIns">Swipe away a task when its done. Tap on a task to edit it</string>
+    <string name="cardIns">The card on top will view the next milestone. Tap on it to add new ones</string>
+    <string name="archins">Tap on this icon to view completed tasks</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="skip">Skip</string>
 </resources>
 

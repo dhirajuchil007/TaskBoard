@@ -1,4 +1,4 @@
-package com.velocityappsdj.todo_;
+package com.velocityappsdj.taskboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class AddMilestone extends AppCompatActivity {
     EditText reward,pointsNeeded;
     Button submitMilestone;
     AppDatabase mDb;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,9 @@ public class AddMilestone extends AppCompatActivity {
         reward=findViewById(R.id.reward_tv);
         submitMilestone=findViewById(R.id.submit_milestone);
         mDb=AppDatabase.getsInstance(this);
+       // MobileAds.initialize(this, getString(R.string.admobappid));
+        mAdView = findViewById(R.id.adView);
+        initBannerAds();
 
         submitMilestone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,5 +72,10 @@ public class AddMilestone extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+    public void initBannerAds(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 }

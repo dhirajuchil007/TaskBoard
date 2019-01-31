@@ -1,11 +1,10 @@
-package com.velocityappsdj.todo_;
+package com.velocityappsdj.taskboard;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -13,12 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TaskAdapter   extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
     List<Tasks> tasksArrayList;
+    private OnItemClicked onClick;
 
     public TaskAdapter(List<Tasks> tasksArrayList) {
         this.tasksArrayList = tasksArrayList;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public interface OnItemClicked {
+        void onItemClick(int position);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView points;
         TextView description;
 
@@ -28,10 +32,7 @@ public class TaskAdapter   extends RecyclerView.Adapter<TaskAdapter.MyViewHolder
             description=itemView.findViewById(R.id.task_desc);
         }
 
-        @Override
-        public void onClick(View v) {
 
-        }
     }
 
 
@@ -43,18 +44,33 @@ public class TaskAdapter   extends RecyclerView.Adapter<TaskAdapter.MyViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
         Tasks task=tasksArrayList.get(position);
         holder.points.setText(String.valueOf(task.priority));
         holder.description.setText(task.desc);
         holder.itemView.setTag(task.id);
+        if(task.completed==0)
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onClick.onItemClick(position);
+            }
+        });
+
 
     }
 
     @Override
     public int getItemCount() {
         return tasksArrayList.size();
+    }
+
+
+    public void setOnClick(OnItemClicked onClick)
+    {
+        this.onClick=onClick;
     }
 
 

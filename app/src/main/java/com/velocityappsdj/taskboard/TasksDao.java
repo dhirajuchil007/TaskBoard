@@ -1,6 +1,5 @@
-package com.velocityappsdj.todo_;
+package com.velocityappsdj.taskboard;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.room.Dao;
@@ -8,10 +7,16 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import static androidx.room.OnConflictStrategy.REPLACE;
+
 @Dao
 public interface TasksDao {
     @Query("select * from tasks where completed=0")
     List<Tasks> loadAllTasks();
+
+    @Query("select * from tasks where completed=1")
+    List<Tasks> getCompletedTasks();
 
     @Insert
     void insert(Tasks task);
@@ -54,6 +59,23 @@ public interface TasksDao {
 
     @Query("update milestones set completed=1 where totalPoints<=(select points from totalpoints)")
     int updateCompletedMilestone();
+
+    @Query("delete from milestones")
+    void nukeMilestones();
+
+    @Query("delete from tasks")
+    void nukeTasks();
+
+    @Query("select * from tasks where id=:id")
+    List<Tasks> loadTaskById(int id);
+
+    @Update(onConflict = REPLACE)
+    void updateTask(Tasks tasks);
+
+    @Query("delete from tasks where id=:id")
+    void deleteTask(int id);
+
+
 
 
 

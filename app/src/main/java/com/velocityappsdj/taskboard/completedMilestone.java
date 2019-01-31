@@ -1,14 +1,13 @@
-package com.velocityappsdj.todo_;
+package com.velocityappsdj.taskboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class completedMilestone extends AppCompatActivity {
+public class completedMilestone extends AppCompatActivity implements TaskAdapter.OnItemClicked {
     TextView pointsReached,rewardEarned;
 
     @Override
@@ -34,5 +33,10 @@ public class completedMilestone extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }

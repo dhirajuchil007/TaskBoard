@@ -1,14 +1,14 @@
-package com.velocityappsdj.todo_;
+package com.velocityappsdj.taskboard;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -21,7 +21,8 @@ public class MilestonesActivity extends AppCompatActivity {
     List<Milestones> milestonesList;
     AppDatabase mDb;
     RecyclerView milestonesRecyclerView;
-
+    private AdView mAdView;
+    TextView noMilestones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,11 @@ public class MilestonesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDb=AppDatabase.getsInstance(this);
+        noMilestones=findViewById(R.id.no_milestones_tv);
         milestonesRecyclerView=findViewById(R.id.milestones_list);
+       // MobileAds.initialize(this, getString(R.string.admobappid));
+        mAdView = findViewById(R.id.adView);
+        initBannerAds();
         getMilestoneData();
 
 
@@ -56,9 +61,16 @@ public class MilestonesActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        milestonesRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                        MilestonesAdapter milestonesAdapter=new MilestonesAdapter(milestonesList);
-                        milestonesRecyclerView.setAdapter(milestonesAdapter);
+                        if(milestonesList.size()==0)
+                        {
+                            noMilestones.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            noMilestones.setVisibility(View.INVISIBLE);
+                            milestonesRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                            MilestonesAdapter milestonesAdapter = new MilestonesAdapter(milestonesList);
+                            milestonesRecyclerView.setAdapter(milestonesAdapter);
+                        }
                     }
                 });
 
@@ -83,5 +95,11 @@ public class MilestonesActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void initBannerAds(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 }

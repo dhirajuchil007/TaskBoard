@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.velocityappsdj.todo_">
+    package="com.velocityappsdj.taskboard">
 
     <application
         android:allowBackup="true"
@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9540086841520699~8641912169" />
+
         <activity
-            android:name=".MainActivity"
+            android:name="com.velocityappsdj.taskboard.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,16 +24,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddTask"
+            android:name="com.velocityappsdj.taskboard.AddTask"
             android:label="@string/addtask" />
         <activity
-            android:name=".MilestonesActivity"
+            android:name="com.velocityappsdj.taskboard.MilestonesActivity"
             android:label="@string/milestones" />
         <activity
-            android:name=".AddMilestone"
+            android:name="com.velocityappsdj.taskboard.AddMilestone"
             android:label="@string/addMilestoneactivitylabel" />
-        <activity android:name=".completedMilestone"
-            android:label="@string/milestonereached"></activity>
+        <activity
+            android:name="com.velocityappsdj.taskboard.completedMilestone"
+            android:label="@string/milestonereached" />
+        <activity
+            android:name="com.velocityappsdj.taskboard.CompletedTasks"
+            android:label="@string/completed_tasks" />
+        <activity android:name="com.velocityappsdj.taskboard.SettingsActivity" />
+        <activity android:name="com.velocityappsdj.taskboard.OnBoard"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
